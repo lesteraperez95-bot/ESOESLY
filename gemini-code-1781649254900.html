@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESOESLY | B2B Wholesale Distributor</title>
+    <!-- Google Fonts Premium e Internacional -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --azul-cielo: #00A8E8;
+            --naranja: #FF6B35;
+            --negro: #0D0E12;
+            --blanco: #FFFFFF;
+            --gris-fondo: #F8FAFC;
+            --gris-borde: #E2E8F0;
+            --texto-principal: #1E293B;
+            --texto-secundario: #64748B;
+            --radio: 16px;
+            --fuente: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--fuente);
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--blanco);
+            color: var(--texto-principal);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        .container {
+            width: 90%;
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        /* --- BOTONES --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            border-radius: var(--radio);
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-orange {
+            background-color: var(--naranja);
+            color: var(--blanco);
+            border: none;
+        }
+
+        .btn-orange:hover {
+            background-color: #e05626;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.25);
+        }
+
+        .btn-outline-white {
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            color: var(--blanco);
+            background: transparent;
+        }
+
+        .btn-outline-white:hover {
+            border-color: var(--azul-cielo);
+            color: var(--azul-cielo);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* --- HEADER NAVBAR --- */
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gris-borde);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--negro);
+            display: flex;
+            align-items: center;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span { color: var(--azul-cielo); }
+
+        .nav-menu { display: flex; gap: 32px; }
+        .nav-menu a { color: var(--texto-principal); font-weight: 600; font-size: 15px; transition: color 0.2s; }
+        .nav-menu a:hover { color: var(--azul-cielo); }
+
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .lang-switch { font-weight: 700; font-size: 14px; color: var(--texto-secundario); }
+
+        /* --- HERO SECCIÓN CON IMAGEN DE ALMACÉN WHOLESALE --- */
+        .hero {
+            position: relative;
+            padding: 120px 0;
+            background-image: linear-gradient(to right, rgba(13, 14, 18, 0.95) 42%, rgba(13, 14, 18, 0.5) 100%), 
+                              url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+            width: 100%;
+            z-index: 2;
+        }
+
+        .tag-line {
+            display: inline-block;
+            background-color: rgba(0, 168, 232, 0.15);
+            border: 1px solid rgba(0, 168, 232, 0.3);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 24px;
+            color: var(--azul-cielo);
+            backdrop-filter: blur(4px);
+        }
+
+        .hero h1 {
+            font-size: 54px;
+            color: var(--blanco);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span { color: var(--azul-cielo); }
+
+        .hero p {
+            font-size: 19px;
+            color: #E2E8F0;
+            margin-bottom: 40px;
+            max-width: 580px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+        }
+
+        .hero-actions { display: flex; gap: 16px; }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 35px 25px;
+            border-radius: var(--radio);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .stat-item h3 { font-size: 38px; color: var(--blanco); font-weight: 800; margin-bottom: 5px; }
+        .stat-item h3 span { color: var(--naranja); }
+        .stat-item p { font-size: 13px; color: #CBD5E1; font-weight: 600; line-height: 1.3; }
+
+        /* --- CARRUSEL INFINITO DE MARCAS --- */
+        .brands-ticker {
+            background-color: var(--negro);
+            padding: 30px 0;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            border-top: 2px solid var(--azul-cielo);
+        }
+
+        .ticker-wrap {
+            display: flex;
+            width: 200%;
+            animation: ticker 35s linear infinite;
+        }
+
+        .ticker-wrap:hover { animation-play-state: paused; }
+        .ticker-slide { display: flex; justify-content: space-around; width: 50%; gap: 40px; }
+
+        .brand-name {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+            white-space: nowrap;
+        }
+
+        .brand-name:hover { color: var(--blanco); }
+
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* --- SECCIONES GENERALES --- */
+        .section-padding { padding: 100px 0; }
+        
+        .section-num {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--azul-cielo);
+            margin-bottom: 12px;
+            display: block;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: 38px;
+            color: var(--negro);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--texto-secundario);
+            max-width: 600px;
+            margin-bottom: 48px;
+        }
+
+        /* --- 01 - CATEGORIES GRID --- */
+        .categories-section { background-color: var(--gris-fondo); }
+        .cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 24px; }
+
+        .cat-card {
+            background: var(--blanco);
+            border: 1px solid var(--gris-borde);
+            border-radius: var(--radio);
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.01);
+            transition: all 0.3s ease;
+        }
+
+        .cat-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--azul-cielo);
+            box-shadow: 0 12px 24px rgba(0, 168, 232, 0.06);
+        }
+
+        .cat-info h4 { font-size: 20px; color: var(--negro); font-weight: 700; margin-bottom: 6px; }
+        .cat-link { font-size: 14px; font-weight: 700; color: var(--texto-secundario); transition: color 0.2s; }
+        .cat-card:hover .cat-link { color: var(--naranja); }
+
+        .cat-icon {
+            font-size: 32px;
+            width: 64px;
+            height: 64px;
+            background-color: var(--gris-fondo);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- 02 - MORE THAN A SUPPLIER --- */
+        .partner-section { background-color: var(--blanco); }
+        .partner-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .partner-list { margin: 30px 0 40px; }
+
+        .partner-list-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--texto-principal);
+            border-bottom: 1px solid var(--gris-borde);
+        }
+
+        .partner-list-item::before {
+            content: "✓";
+            color: var(--azul-cielo);
+            font-weight: 900;
+            font-size: 18px;
+        }
+
+        .partner-banner {
+            background-color: var(--negro);
+            color: var(--blanco);
+            padding: 50px;
+            border-radius: var(--radio);
+            border-left: 6px solid var(--naranja);
+        }
+
+        .partner-banner h3 { font-size: 42px; font-weight: 800; margin-bottom: 10px; }
+        .partner-banner h3 span { color: var(--azul-cielo); }
+        .partner-banner p { color: rgba(255,255,255,0.6); font-weight: 600; }
+
+        /* --- 03 - WHY CHOOSE US? --- */
+        .reasons-section { background-color: var(--gris-fondo); }
+        .reasons-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+
+        .reason-card {
+            background: var(--blanco);
+            border: 1px solid var(--gris-borde);
+            border-radius: var(--radio);
+            padding: 30px;
+            transition: all 0.2s ease;
+        }
+
+        .reason-card:hover { border-color: var(--naranja); }
+        .reason-card h4 { font-size: 17px; color: var(--negro); font-weight: 700; margin-bottom: 12px; }
+        .reason-card p { font-size: 14px; color: var(--texto-secundario); }
+
+        /* --- CONTACT SECTOR --- */
+        .contact-section { background-color: var(--blanco); }
+
+        .contact-box {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 60px;
+            background: var(--gris-fondo);
+            padding: 50px;
+            border-radius: var(--radio);
+            border: 1px solid var(--gris-borde);
+        }
+
+        .contact-meta h3 { font-size: 32px; font-weight: 800; margin-bottom: 20px; }
+        .contact-meta p { color: var(--texto-secundario); margin-bottom: 40px; }
+
+        .meta-row { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 24px; }
+        .meta-icon { font-size: 20px; color: var(--azul-cielo); margin-top: 2px; }
+        .meta-text strong { display: block; font-size: 14px; color: var(--negro); margin-bottom: 2px; }
+        .meta-text span { font-size: 15px; color: var(--texto-secundario); font-weight: 500; }
+
+        .contact-form { background: var(--blanco); padding: 40px; border-radius: var(--radio); border: 1px solid var(--gris-borde); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 10px;
+            border: 1px solid var(--gris-borde);
+            background: var(--gris-fondo);
+            font-size: 15px;
+            outline: none;
+            margin-bottom: 16px;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus { border-color: var(--azul-cielo); background: var(--blanco); }
+
+        /* --- FOOTER --- */
+        footer { background-color: var(--negro); color: var(--blanco); padding: 80px 0 30px; font-size: 15px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 40px; padding-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .footer-about p { color: rgba(255,255,255,0.5); margin-top: 15px; max-width: 320px; }
+        
+        .footer-col h5 { color: var(--blanco); font-size: 16px; font-weight: 700; margin-bottom: 24px; }
+        .footer-col ul li { margin-bottom: 12px; }
+        .footer-col ul li a { color: rgba(255,255,255,0.6); transition: color 0.2s; }
+        .footer-col ul li a:hover { color: var(--azul-cielo); }
+
+        .footer-contact-item { color: rgba(255,255,255,0.6); margin-bottom: 16px; line-height: 1.4; }
+        .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 30px; color: rgba(255,255,255,0.4); font-size: 14px; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .hero-grid, .partner-grid, .contact-box, .footer-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 38px; }
+            .nav-menu { display: none; }
+            .contact-box { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR AREA -->
+    <header>
+        <div class="container nav-box">
+            <a href="#home" class="logo">ESOESLY<span>.</span></a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#catalog">Catalog</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-right">
+                <span class="lang-switch">EN</span>
+                <a href="#contact" class="btn btn-orange" style="padding: 10px 20px; font-size: 14px;">I want to work with you</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION WITH WHOLESALE WAREHOUSE BACKGROUND -->
+    <section class="hero" id="home">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <span class="tag-line">B2B Wholesale Distributor</span>
+                <h1>The Partner <span>Your Business Needs</span></h1>
+                <p>We're your trusted wholesale supplier for restocking your store across Latin America and the Caribbean.</p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-orange">I want to work with you</a>
+                    <a href="#catalog" class="btn btn-outline-white">Explore catalog</a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3>50<span>+</span></h3>
+                    <p>Leading<br>brands</p>
+                </div>
+                <div class="stat-item">
+                    <h3>15<span>+</span></h3>
+                    <p>Years of<br>experience</p>
+                </div>
+                <div class="stat-item">
+                    <h3>30<span>+</span></h3>
+                    <p>Countries<br>served</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AUTOMATED BRAND TICKER -->
+    <div class="brands-ticker">
+        <div class="ticker-wrap">
+            <!-- Slide 1 -->
+            <div class="ticker-slide">
+                <span class="brand-name">Milwaukee</span><span class="brand-name">Stanley</span>
+                <span class="brand-name">Black+Decker</span><span class="brand-name">Goodyear</span>
+                <span class="brand-name">Oster</span><span class="brand-name">Graco</span>
+                <span class="brand-name">Proxxon</span><span class="brand-name">CTEK</span>
+                <span class="brand-name">BSI</span><span class="brand-name">JV</span>
+                <span class="brand-name">Fisher-Price</span><span class="brand-name">Bosch</span>
+                <span class="brand-name">DeWalt</span><span class="brand-name">Hoover</span>
+                <span class="brand-name">KitchenAid</span><span class="brand-name">Nestlé</span>
+                <span class="brand-name">P&G</span><span class="brand-name">Unilever</span>
+                <span class="brand-name">L'Oréal</span><span class="brand-name">Hasbro</span>
+                <span class="brand-name">Mattel</span><span class="brand-name">Sony</span>
+                <span class="brand-name">Philips</span><span class="brand-name">Samsung</span>
+            </div>
+            <!-- Slide 2 Duplicate for Seamless Infinity Loop -->
+            <div class="ticker-slide">
+                <span class="brand-name">Milwaukee</span><span class="brand-name">Stanley</span>
+                <span class="brand-name">Black+Decker</span><span class="brand-name">Goodyear</span>
+                <span class="brand-name">Oster</span><span class="brand-name">Graco</span>
+                <span class="brand-name">Proxxon</span><span class="brand-name">CTEK</span>
+                <span class="brand-name">BSI</span><span class="brand-name">JV</span>
+                <span class="brand-name">Fisher-Price</span><span class="brand-name">Bosch</span>
+                <span class="brand-name">DeWalt</span><span class="brand-name">Hoover</span>
+                <span class="brand-name">KitchenAid</span><span class="brand-name">Nestlé</span>
+                <span class="brand-name">P&G</span><span class="brand-name">Unilever</span>
+                <span class="brand-name">L'Oréal</span><span class="brand-name">Hasbro</span>
+                <span class="brand-name">Mattel</span><span class="brand-name">Sony</span>
+                <span class="brand-name">Philips</span><span class="brand-name">Samsung</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 01 — CATEGORIES -->
+    <section class="section-padding categories-section" id="catalog">
+        <div class="container">
+            <span class="section-num">01 — Categories</span>
+            <h2 class="section-title">Explore Our Categories</h2>
+            <p class="section-subtitle">Perfumes, toys, technology, tools, home & kitchen, baby products, sports, gardening and much more.</p>
+
+            <div class="cat-grid">
+                <div class="cat-card"><div class="cat-info"><h4>Perfumes</h4><a href="#contact" class="cat-link">Ver más &rarr;</a></div><div class="cat-icon">🧴</div></div>
+                <div class="cat-card"><div class="cat-info"><h4>Tools</h4><a href="#contact" class="cat-link">Ver más &rarr;</a></div><div class="cat-icon">🛠️</div></div>
+                <div class="cat-card"><div class="cat-info"><h4>Babies</h4><a href="#contact" class="cat-link">Ver más &rarr;</a></div><div class="cat-icon">🍼</div></div>
+                <div class="cat-card"><div class="cat-info"><h4>Toys</h4><a href="#contact" class="cat-link">Ver más &rarr;</a></div><div class="cat-icon">🧸</div></div>
+                <div class="cat-card"><div class="cat-info"><h4>Pet Supplies</h4><a href="#contact" class="cat-link">Ver más &rarr;</a></div><div class="cat-icon">🐶</div></div>
+                <div class="cat-card"><div class="cat-info"><h4>Technology</h4><a href="#contact" class="cat-link">Ver más &rarr;</a></div><div class="cat-icon">💻</div></div>
+                <div class="cat-card"><div class="cat-info"><h4>Gardening</h4><a href="#contact" class="cat-link">Ver más &rarr;</a></div><div class="cat-icon">🏡</div></div>
+                <div class="cat-card"><div class="cat-info"><h4>Home & Kitchen</h4><a href="#contact" class="cat-link">Ver más &rarr;</a></div><div class="cat-icon">🍳</div></div>
+                <div class="cat-card"><div class="cat-info"><h4>Sports</h4><a href="#contact" class="cat-link">Ver más &rarr;</a></div><div class="cat-icon">⚽</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 02 — MORE THAN A SUPPLIER -->
+    <section class="section-padding partner-section" id="about">
+        <div class="container">
+            <span class="section-num">02 — More Than A Supplier</span>
+            <div class="partner-grid">
+                <div>
+                    <h2 class="section-title">Your trusted strategic partner</h2>
+                    <p style="color: var(--texto-secundario);">At ESOESLY you get access to top-tier brands at unbeatable prices. Stock your business in Latin America and the Caribbean and enjoy:</p>
+                    
+                    <div class="partner-list">
+                        <div class="partner-list-item">Competitive prices</div>
+                        <div class="partner-list-item">Access to 50+ leading brands</div>
+                        <div class="partner-list-item">Over 15 years of experience</div>
+                        <div class="partner-list-item">Personalized one-on-one service</div>
+                        <div class="partner-list-item">Trust, quality and value in one place</div>
+                    </div>
+                    <a href="#contact" class="btn btn-orange">I want to work with you</a>
+                </div>
+                <div>
+                    <div class="partner-banner">
+                        <h3>15<span>+</span></h3>
+                        <p>Años · Years</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03 — WHY CHOOSE US? -->
+    <section class="section-padding reasons-section" id="blog">
+        <div class="container">
+            <span class="section-num">03 — Why Choose Us?</span>
+            <h2 class="section-title">Why Choose Us?</h2>
+            <p class="section-subtitle">Eight reasons why ESOESLY is the partner you can trust.</p>
+
+            <div class="reasons-grid">
+                <div class="reason-card"><h4>Wide variety of products and brands</h4><p>Find everything you need in one place with 50+ leading brands.</p></div>
+                <div class="reason-card"><h4>Over 15 years of experience</h4><p>Since 2010 we've provided reliable, solid and adaptable service.</p></div>
+                <div class="reason-card"><h4>Strategic location</h4><p>We operate from Houston, TX with efficient logistics and global access.</p></div>
+                <div class="reason-card"><h4>Competitive prices</h4><p>The best deals without compromising product quality.</p></div>
+                <div class="reason-card"><h4>Personalized service</h4><p>One-on-one attention focused on your specific needs.</p></div>
+                <div class="reason-card"><h4>Lower transfer costs</h4><p>A single supplier means fewer fees and more margin for you.</p></div>
+                <div class="reason-card"><h4>Recognized & original brands</h4><p>Guaranteed authenticity at great prices.</p></div>
+                <div class="reason-card"><h4>Trusted partner network</h4><p>Logistics allies that ensure the best experience to delivery.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT AREA -->
+    <section class="section-padding contact-section" id="contact">
+        <div class="container">
+            <div class="contact-box">
+                <div class="contact-meta">
+                    <h3>Get in Touch</h3>
+                    <p>Every client deserves the highest level of service. Connect with us and unlock your business potential.</p>
+                    
+                    <div class="meta-row">
+                        <div class="meta-icon">📍</div>
+                        <div class="meta-text"><strong>Address</strong><span>2401 Fountain View Dr, Ste 464, Houston, TX 77057, USA</span></div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-icon">📞</div>
+                        <div class="meta-text"><strong>Phone Number</strong><span>+1 (713) 376-4536</span></div>
+                    </div>
+                    <div class="meta-row">
+                        <div class="meta-icon">✉️</div>
+                        <div class="meta-text"><strong>Email Address</strong><span>perezesoesly95@gmail.com</span></div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you! ESOESLY will contact you shortly.');">
+                        <div class="form-row">
+                            <input type="text" placeholder="Your Name" required>
+                            <input type="text" placeholder="Company Name / LLC" required>
+                        </div>
+                        <input type="email" placeholder="Business Email Address" required>
+                        <textarea placeholder="Tell us about your volume needs or categories of interest..." rows="5" required></textarea>
+                        <button type="submit" class="btn btn-orange" style="width:100%; border:none;">I want to work with you</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER AREA -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="logo" style="color:var(--blanco);">ESOESLY<span>.</span></div>
+                    <p>Your strategic wholesale partner across Latin America and the Caribbean — from Houston, TX.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Links</h5>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#catalog">Catalog</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Categories</h5>
+                    <ul>
+                        <li><a href="#catalog">Perfumes</a></li>
+                        <li><a href="#catalog">Tools</a></li>
+                        <li><a href="#catalog">Babies</a></li>
+                        <li><a href="#catalog">Toys</a></li>
+                        <li><a href="#catalog">Pet Supplies</a></li>
+                        <li><a href="#catalog">Technology</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Headquarters</h5>
+                    <div class="footer-contact-item">2401 Fountain View Dr, Ste 464, Houston, TX 77057, USA</div>
+                    <div class="footer-contact-item" style="font-weight:700; color:var(--azul-cielo);">+1 (713) 376-4536</div>
+                    <div class="footer-contact-item">perezesoesly95@gmail.com</div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; 2026 ESOESLY. All rights reserved.</div>
+                <div>Houston, TX · USA</div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
